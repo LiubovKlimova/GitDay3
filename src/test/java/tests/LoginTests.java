@@ -24,6 +24,7 @@ public class LoginTests {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
+
     @AfterMethod
     public void cleanUp(){
         driver.close();
@@ -54,6 +55,10 @@ public class LoginTests {
         driver.findElement(By.id("ctl00_MainContent_password")).sendKeys("test2" + Keys.ENTER);
         String errorMessage = driver.findElement(By.id("ctl00_MainContent_status")).getText();
         Assert.assertEquals(errorMessage, "Invalid Login or Password.");
+
+    }
+    @Test
+    public void test45(){
 
     }
 
