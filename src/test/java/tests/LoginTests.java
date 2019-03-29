@@ -12,10 +12,13 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 //login test
 public class LoginTests {
     WebDriver driver;
+    Map<String,String> myMap = new HashMap<String, String>();
 
     @BeforeMethod
     public void setUp(){
@@ -36,7 +39,8 @@ public class LoginTests {
         driver.get("http://secure.smartbearsoftware.com/samples/TestComplete12/WebOrders/Login.aspx");
         driver.findElement(By.id("ctl00_MainContent_username")).sendKeys("Tester");
         driver.findElement(By.id("ctl00_MainContent_password")).sendKeys("test"+ Keys.ENTER);
-        Assert.assertEquals(driver.getTitle(),"Web Orders");
+        String title =driver.getTitle();
+        Assert.assertEquals(title,"Web Orders");
 
     }
     @Test
